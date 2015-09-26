@@ -18,7 +18,7 @@ public enum TipoDeEspetaculo {
 	TEATRO {
 		@Override
 		public BigDecimal calcula(int quantidade, Sessao sessao) {
-			return sessao.getPreco();
+			return sessao.getPreco().multiply(BigDecimal.valueOf(quantidade))  ;
 		}
 	},
 	BALLET {
