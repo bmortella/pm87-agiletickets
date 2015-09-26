@@ -115,7 +115,7 @@ public class Sessao {
 
 	public BigDecimal calcula(Integer quantidade) {
 		TipoDeEspetaculo tipo = getEspetaculo().getTipo();
-		BigDecimal precoDaSessao = tipo.calcula(quantidade, this);
-		return precoDaSessao;
+		BigDecimal precoDaSessao = tipo.calcula(this);
+		return precoDaSessao.multiply(BigDecimal.valueOf(quantidade)) ;
 	}
 }
