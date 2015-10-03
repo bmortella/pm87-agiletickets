@@ -26,7 +26,7 @@ public class ReservaTest {
 	}
 
 	@Test
-	public void reservaIngressoEChecaAcrescimo() throws InterruptedException {
+	public void reservaIngressoEChecaAcrescimo(){
 		browser.get(BASE_URL + "/sessao/6");
 		browser.findElement(By.name("quantidade")).sendKeys("1");
 		WebElement div = browser.findElement(By.id("content"));
