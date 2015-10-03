@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.caelum.agiletickets.models.Sessao;
@@ -68,6 +69,7 @@ public class CalculadoraDePrecosTest {
 		
 		assertEquals(0, BigDecimal.valueOf(110.0).compareTo(precoTotal));
 	}
+	
 
 	@Test
 	public void naoDeveAplicarAcrescimoNosPrimeirosIngressosQuandoForShow(){

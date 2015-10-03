@@ -3,9 +3,75 @@ package br.com.caelum.agiletickets.models;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
+import org.joda.time.Chronology;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class EspetaculoTest {
+
+	@Test
+	public void deveCriarSessoesSemanais() {
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate(2015, 1, 9);
+		LocalDate fim = new LocalDate(2015, 1, 23);
+		LocalTime horario = new LocalTime(17);
+		Periodicidade periodicidade = Periodicidade.SEMANAL;
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario,
+				periodicidade);
+
+		Assert.assertEquals(3, sessoes.size());
+	}
+	
+	@Test
+	public void deveCriarSessoesSemanaisComExemploEnunciado() {
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate(2010, 1, 1);
+		LocalDate fim = new LocalDate(2010, 1, 31);
+		LocalTime horario = new LocalTime(17);
+		Periodicidade periodicidade = Periodicidade.SEMANAL;
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario,
+				periodicidade);
+
+		Assert.assertEquals(5, sessoes.size());
+	}
+	
+	@Test
+	public void deveCriarSessoesDiarias() {
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate(2015, 1, 9);
+		LocalDate fim = new LocalDate(2015, 1, 23);
+		LocalTime horario = new LocalTime(17);
+		Periodicidade periodicidade = Periodicidade.DIARIA;
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario,
+				periodicidade);
+
+		Assert.assertEquals(15, sessoes.size());
+	}
+	
+	@Test
+	public void deveCriarSessoesDiariasComExemploEnunciado() {
+		Espetaculo espetaculo = new Espetaculo();
+
+		LocalDate inicio = new LocalDate(2010, 1, 1);
+		LocalDate fim = new LocalDate(2010, 1, 3);
+		LocalTime horario = new LocalTime(17);
+		Periodicidade periodicidade = Periodicidade.DIARIA;
+
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario,
+				periodicidade);
+
+		Assert.assertEquals(3, sessoes.size());
+	}
 
 	@Test
 	public void deveInformarSeEhPossivelReservarAQuantidadeDeIngressosDentroDeQualquerDasSessoes() {
@@ -80,5 +146,5 @@ public class EspetaculoTest {
 
 		return sessao;
 	}
-	
+
 }
