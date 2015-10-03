@@ -33,7 +33,7 @@ public class Espetaculo {
 
 	@ManyToOne
 	private Estabelecimento estabelecimento;
-
+	
 	@OneToMany(mappedBy = "espetaculo")
 	private List<Sessao> sessoes = new ArrayList();
 
