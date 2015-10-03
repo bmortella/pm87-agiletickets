@@ -17,8 +17,6 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.joda.time.Weeks;
 
-import sun.util.resources.LocaleData;
-
 @Entity
 public class Espetaculo {
 
